@@ -45,10 +45,10 @@ const { ready, start } = useTimeout(3000, { controls: true });
     Logged in : {{ isAuthenticated }}
     <div class="flex items-center justify-center overflow-hidden bg-gray-200 rounded-lg shadow-2xl">
         <img class="h-64" src="../assets/loginbg.png" alt="Hello BG">
-        <form @submit.prevent="loggingIn" class="flex flex-col p-4 space-y-4">
+        <form @submit.prevent="logginIn" class="flex flex-col p-4 space-y-4">
             <input type="text" class="p-2 border-2 rounded-lg" placeholder="Username" v-model="username"/>
             <input type="password" class="p-2 border-2 rounded-lg" placeholder="Password" v-model="password"/>
-            <div class="flex space-x-2"><button @submit.prevent="loggingIn"  type="submit" class="w-1/2 py-2 text-white bg-blue-500 rounded-lg">Login</button>
+            <div class="flex space-x-2"><button @submit.prevent="logginIn"  type="submit" class="w-1/2 py-2 text-white bg-blue-500 rounded-lg">Login</button>
             <button @click="signingUp" class="w-1/2 py-2 text-white bg-green-500 rounded-lg ">Sign Up</button>
             </div>
         </form>
