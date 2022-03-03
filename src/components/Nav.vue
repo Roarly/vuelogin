@@ -12,9 +12,9 @@ const loggingOut = () => {
 
 
 <template>
-<div class="text-blue-500 bg-gray-600">
+<div class="text-green-600 bg-gray-800">
     <div class="container flex items-center justify-between py-4 mx-auto">
-        <h1 class="text-2xl font-light tracking-tight">Vue<span class="font-semibold">FakeAuth</span>
+        <h1 class="text-2xl font-light tracking-tight">Vue<span class="font-semibold">RealAuth</span>
         </h1>
         <nav>
             <ul class="flex ">
