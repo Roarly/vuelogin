@@ -3,9 +3,9 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import useAuth from"../composables/useAuth";
 import useError from "../composables/useError";
+import { useTimeout, promiseTimeout } from "@vueuse/core";
 
-
-const { isAuthenticated, login, signup } = useAuth();
+const { isAuthenticated, login, signup, googleLogin } = useAuth();
 
 const username = ref("");
 const password = ref("");
@@ -22,6 +22,11 @@ const signingUp = async () => {
   goToHome();
 };
 
+const google = async () => {
+  await googleLogin();
+  goToHome();
+};
+
 const goToHome = () => {
   if (isAuthenticated.value) {
     router.push("/");
@@ -33,7 +38,7 @@ const goToHome = () => {
 
 const { error, setError } = useError();
 
-import { useTimeout, promiseTimeout } from "@vueuse/core";
+
 const { ready, start } = useTimeout(3000, { controls: true });
 </script>
 
@@ -42,7 +47,7 @@ const { ready, start } = useTimeout(3000, { controls: true });
 
 <template>
 <div class="flex flex-col items-center justify-center space-y-3 min-h-screen-nonav">
-    Logged in : {{ isAuthenticated }}
+    <!-- Logged in : {{ isAuthenticated }} -->
     <div class="flex items-center justify-center overflow-hidden bg-gray-200 rounded-lg shadow-2xl">
         <img class="h-64" src="../assets/loginbg.png" alt="Hello BG">
         <form @submit.prevent="logginIn" class="flex flex-col p-4 space-y-4">
@@ -51,6 +56,7 @@ const { ready, start } = useTimeout(3000, { controls: true });
             <div class="flex space-x-2"><button @submit.prevent="logginIn"  type="submit" class="w-1/2 py-2 text-white bg-blue-500 rounded-lg">Login</button>
             <button @click="signingUp" class="w-1/2 py-2 text-white bg-green-500 rounded-lg ">Sign Up</button>
             </div>
+            <button @click="google" class="flex justify-center py-2 bg-white rounded-lg hover:bg-gray-500"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"></button>
         </form>
     </div>
     <div
