@@ -1,3 +1,24 @@
 <template>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi quia dolores, at cum id fugiat sed nulla nesciunt, consequatur quas voluptas, est aut quae! Debitis eveniet iure laudantium similique animi! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam aliquam dolores unde in, officiis quod officia, earum accusantium, doloribus iure magnam vero odit quam laborum ipsa delectus fugiat minus beatae!</p>
+  <h1 class="mt-8 text-6xl font-thin tracking-tighter text-center">
+    Cool Chat
+  </h1>
+  <div
+    class="min-h-[500px] w-full mt-8 rounded-lg shadow-2xl flex flex-col justify-between"
+  >
+    <ul class="p-4 space-y-4">
+      <li v-for="n in 5">
+        <div class="flex justify-between px-4 py-2 bg-gray-200 rounded-lg">
+          <span>Message itself</span>
+          <span> by Author Name</span>
+        </div>
+      </li>
+    </ul>
+    <div>
+      <input
+        class="w-full p-3 rounded-lg focus:outline-none focus:bg-green-300"
+        type="text"
+        placeholder="Type a message..."
+      />
+    </div>
+  </div>
 </template>
